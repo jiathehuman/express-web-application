@@ -11,7 +11,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                <li class="breadcrumb-item active" aria-current="page">Athlete: <%= data[0].name%></li>
             </ol>
         </nav>
         <h1>The Olympic Career of <%= data[0].name%></h1>
@@ -19,10 +19,10 @@
         <table class = "table">
             <thead>
                 <tr>
-                    <th>height</th>
-                    <th>weight</th>
-                    <th>team</th>
-                    <th>game</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Team</th>
+                    <th>Game</th>
                 </tr>
                 <% data.forEach((item) => { %>
                     <tr>

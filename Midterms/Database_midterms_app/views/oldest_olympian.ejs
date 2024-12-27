@@ -11,7 +11,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                <li class="breadcrumb-item active" aria-current="page">Oldest olympian</li>
             </ol>
         </nav>
         <h1>Oldest Olympian across games from 2010 - 2016</h1>
@@ -23,6 +23,7 @@
                     <th>Age</th>
                     <th>Height</th>
                     <th>Event Name</th>
+                    <th>Link to Games</th>
                 </tr>
             </thead>
             <tr>
@@ -31,6 +32,12 @@
                 <td><%=data.age%></td>
                 <td><%=data.heigh%>t</td>
                 <td><%=data.event_name%></td>
+                <td>
+                <form action="/athlete" method = "GET" class = "my-2">
+                        <input type="hidden" name="athlete_id" value = <%=data.athlete_id%> >
+                        <button class="btn btn-outline-dark" type="submit">Athlete details</button>
+                </form>
+                </td>
             </tr>
         </table>
         </div>

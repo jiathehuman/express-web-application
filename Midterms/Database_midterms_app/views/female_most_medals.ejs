@@ -11,7 +11,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                <li class="breadcrumb-item active" aria-current="page">Most accolates (female athletes)</li>
             </ol>
         </nav>
         <h1>Female athletes with the most medals</h1>
@@ -20,15 +20,19 @@
                 <tr>
                     <th>Name</th>
                     <th>Medal Count</th>
+                    <th>Link to games</th>
                 </tr>
             </thead>
             <% data.forEach((item) => { %>
                 <tr>
                     <td><%= item.name%> </td>
-                    <td><%= item.count%> </td>
-                    <td><%= item.age %></td>
-                    <td><%= item.height %></td>
-                    <td><%= item.team %></td>
+                    <td><%= item.gold_medal_count%> </td>
+                    <td>
+                        <form action="/athlete" method = "GET" class = "my-2">
+                            <input type="hidden" name="athlete_id" value = <%=item.athlete_id%> >
+                            <button class="btn btn-outline-dark" type="submit">Athlete details</button>
+                        </form>
+                    </td>
                 </tr>
             <% }); %>
         </table>

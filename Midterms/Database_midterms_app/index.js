@@ -54,7 +54,7 @@ app.get('/avg_age_olympians', (req, res) => {
 
 // Who is the oldest olympian?
 app.get('/oldest_olympian', (req, res) => {
-    db.query(`SELECT a.name, a.sex, ag.age, ag.height, e.event_name
+    db.query(`SELECT a.athlete_id, a.name, a.sex, ag.age, ag.height, e.event_name
     FROM athletes a
     INNER JOIN athlete_game ag
     ON a.athlete_id = ag.athlete_id
@@ -73,25 +73,25 @@ app.get('/oldest_olympian', (req, res) => {
 
 // From all four games, which 10 female athletes accoumulated the most gold medals?
 app.get('/female_most_medals', (req, res) => {
-    db.query(`SELECT a.name, count(m.athlete_id) AS count
-FROM athlete_event_medal m
-INNER JOIN athletes a
-ON a.athlete_id = m.athlete_id
-WHERE medal = 'Gold' AND a.sex = 'F'
-GROUP BY a.name
-ORDER BY count(m.athlete_id) DESC
-LIMIT 10;`, function(err, result){
-        if(err) throw err;
-        console.log(result)
-        res.render("female_most_medals",{
-        data: result
+    db.query(`SELECT a.athlete_id, a.name, count(m.athlete_id) AS gold_medal_count
+    FROM athlete_event_medal m
+    INNER JOIN athletes a
+    ON a.athlete_id = m.athlete_id
+    WHERE medal = 'Gold' AND a.sex = 'F'
+    GROUP BY a.athlete_id
+    ORDER BY gold_medal_count DESC
+    LIMIT 10;`, function(err, result){
+            if(err) throw err;
+            console.log(result)
+            res.render("female_most_medals",{
+            data: result
     })
 })
 });
 
 // Who is the youngest olympian?
 app.get('/youngest_olympian', (req, res) => {
-    db.query(`SELECT a.name, a.sex, ag.age, ag.height, n.team
+    db.query(`SELECT a.athlete_id, a.name, a.sex, ag.age, ag.height, n.team
     FROM athletes a
     INNER JOIN athlete_game ag
     ON a.athlete_id = ag.athlete_id
