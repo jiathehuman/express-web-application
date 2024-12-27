@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Athletes</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <h1>Number of sports at each of the Winter Olympic games</h1>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Year</th>
+                    <th>Sport Count</th>
+                </tr>
+            </thead>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><%= item.city%> </td>
+                    <td><%= item.year%> </td>
+                    <td><%= item.sport_count%></td>
+                </tr>
+            <% }); %>
+        </table>
+        </div>
+</body>
+</html>

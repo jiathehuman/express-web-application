@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Athletes</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/sports">All Sports</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Average olympian</li>
+            </ol>
+        </nav>
+        <h1>Average Olympian in <%=data.name%></h1>
+
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Name of Sport</th>
+                    <th>Height (cm)</th>
+                    <th>Weight (kg)</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><%=data.name%></td>
+                <!-- Reference: https://stackoverflow.com/questions/58269113/how-to-round-the-numerical-output-value-in-ejs -->
+                <% for (var i = 1; i < Object.keys(data).length; i++) {
+                    var key = Object.keys(data)[i]; %>
+                                    <td><%= parseFloat(data[key]).toFixed(1)%> </td>
+                <% }; %>
+        </tr>
+        </table>
+    </div>
+</body>
+</html>

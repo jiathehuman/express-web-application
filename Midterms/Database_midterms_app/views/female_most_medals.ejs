@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Athletes</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <h1>Female athletes with the most medals</h1>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Medal Count</th>
+                </tr>
+            </thead>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><%= item.name%> </td>
+                    <td><%= item.count%> </td>
+                    <td><%= item.age %></td>
+                    <td><%= item.height %></td>
+                    <td><%= item.team %></td>
+                </tr>
+            <% }); %>
+        </table>
+        </div>
+</body>
+</html>

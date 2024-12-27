@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Athletes</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <h1>Oldest Olympian across games from 2010 - 2016</h1>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Height</th>
+                    <th>Event Name</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><%=data.name%></td>
+                <td><%=data.sex%></td>
+                <td><%=data.age%></td>
+                <td><%=data.heigh%>t</td>
+                <td><%=data.event_name%></td>
+            </tr>
+        </table>
+        </div>
+</body>
+</html>
