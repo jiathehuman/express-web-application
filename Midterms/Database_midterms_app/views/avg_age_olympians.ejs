@@ -16,7 +16,8 @@
             </ol>
         </nav>
         <h1>Average age of Olympians</h1>
-        The average age of Olympians that won medals is : <b><%= data[0].age %></b>
+        The average age of Olympians that won medals is : <b>
+            <%= parseFloat(data[0].age).toFixed(1) %></b> years old.
     </div>
 </body>
 </html>
