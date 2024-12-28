@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Get bootstrap library for styling -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <title>Olympics</title>
+    <title>Midterms: Olympics</title>
 </head>
-
 <body>
     <div class="container p-3">
-        <h1>Exploring the Olympics</h1>
+        <h1>CM3010: Database and Advanced Data Techniques [Midterms]</h1>
+        <h2>Exploring the Olympics</h2>
         <p>The table below presents a series of research questions addressed within this project.
             The questions are ordered in increasing complexity, with more sophisticated SQL statements
             that delve deeper into the Olympics dataset.
@@ -65,6 +66,16 @@
             </tr>
             <tr>
                 <td>4</td>
+                <td>Which NOC won the most bronze, silver and gold medals across all four games?</td>
+                <td>This query finds the countries with the most accolates across all four games.
+                    Identifying these countries would aid in a study into the infrastructure that
+                    a country must provide in order to have a thriving sports scene.
+                </td>
+                <td>Aggregation with <b>Sum</b>, Ordering with <b>Case</b> keyword</td>
+                <td><a class="btn btn-outline-dark" href="/noc_games" class="text-dark">Link</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
                 <td>From all four games, which female athletes accumulated the most gold medals?</td>
                 <td>This query aims to identify the most successful female Olympians by finding those
                     that accumulated the most gold medals. This query highlights the individuals that
@@ -75,7 +86,7 @@
                 <td><a class="btn btn-outline-dark" href="/female_most_medals" class="text-dark">Link</a></td>
             </tr>
             <tr>
-                <td>5</td>
+                <td>6</td>
                 <td>How old is the youngest Olympian and what country do they represent?</td>
                 <td>The third query established the oldest age of the Olympian as 71 years-old. This research question
                     shifts
@@ -93,15 +104,14 @@
                 <td colspan = 5><b>Querying with different values</b></td>
             </tr>
             <tr>
-                <td>6</td>
+                <td>7</td>
                 <td>What is the average height and weight of athletes in a sport?</td>
                 <td>
                     From the previous query, it is evident that the youngest athletes are all 13 years old.
                     One particular athlete, Ana Inulia Dascl, has a height of 183cm, which is perculiar for her age.
                     This research question asks for the average height and weight of athletes in a sport. The link
                     directs to a page with the sports listed. Each sport has a different link that directs to a
-                    second page with this statistic. Only the first 25 sports is shown, as Coursera Labs does not do well
-                    with huge amounts of data.
+                    second page with this statistic.
                 </td>
                 </td>
                 <td>Left Join, <b>Right Join</b>, Aggregation with Avg() and filtering with Where clause with <b>different
@@ -112,7 +122,7 @@
                 <td colspan = 5><b>Queries with Common Table Expressions, Aggregation with grouping and ordering, Nested queries and Set operations</b></td>
             </tr>
             <tr>
-                <td>7</td>
+                <td>8</td>
                 <td>Are there athletes that participated in Summer and Winter games and won medals?</td>
                 <td>Given the distinct nature of the Summer and Winter Games, the conventional assuption is that medaling
                     in both iterations of the Olympic Games is an unattainable feat. This research question challenges
@@ -122,7 +132,7 @@
                 <td><a class="btn btn-outline-dark" href="/summer_winter" class="text-dark">Link</a></td>
             </tr>
             <tr>
-                <td>8</td>
+                <td>9</td>
                 <td>Are there athletes that won Bronze in London 2012 and won a Gold medal at Rio 2016?</td>
                 <td>Athletes improve across games as they get faster, stronger or more skilled.
                     This research question seeks to identify a subset of athletes who achieved a bronze medal at the
@@ -131,18 +141,6 @@
                 </td>
                 <td><b>Correlated queries</b>, <b>Exists</b> clause, filtering for more data with different ids</td>
                 <td><a class="btn btn-outline-dark" href="/bronze_gold" class="text-dark">Link</a></td>
-            </tr>
-
-            <tr>
-                <td>9</td>
-                <td>What are the top 10 countries with the most medals at the Winter Games?</td>
-                <td>Given the inherernt climatic advantages associated with countries that participate in the
-                    winter sports, this query investigate a correlation between a country's success in these disciplines
-                    and the prevalence of winter seasons within the country. This query identifies the nations that accumulated
-                    the most medals in the two Winter Olympic games.
-                </td>
-                <td>Left Join, filtering by Where clause, Group by and <b>Order by aggregated Count()</b> </td>
-                <td><a class="btn btn-outline-dark" href="/country_medals_winter" class="text-dark">Link</a></td>
             </tr>
             <tr>
                 <td>10</td>

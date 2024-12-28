@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    Get bootstrap library for styling
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <title>Athletes</title>
+    <title>Athlete</title>
 </head>
 <body>
     <div class="container p-3">
@@ -15,21 +16,27 @@
             </ol>
         </nav>
         <h1>The Olympic Career of <%= data[0].name%></h1>
-
+        The table below shows all the events that the athlete participated in, in the 2010 to 2016 Olympic games.
         <table class = "table">
             <thead>
                 <tr>
+                    <th>Game competed in:</th>
+                    <th>Age</th>
                     <th>Height</th>
                     <th>Weight</th>
                     <th>Team</th>
-                    <th>Game</th>
+                    <th>Event</th>
+                    <th>Medal</th>
                 </tr>
                 <% data.forEach((item) => { %>
                     <tr>
+                        <td><%= item.city%> <%= item.year%> (<%= item.season%>) </td>
+                        <td><%= item.age%>  </td>
                         <td><%= item.height%> </td>
                         <td><%= item.weight%> </td>
                         <td><%= item.team%> </td>
-                        <td><%= item.city%> <%= item.year%> (<%= item.season%>) </td>
+                        <td><%= item.event_name%></td>
+                        <td><%= item.medal%></td>
                     </tr>
                 <% }); %>
         </table>
