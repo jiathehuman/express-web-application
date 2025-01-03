@@ -49,7 +49,7 @@ app.get("/sports", (req, res) => {
 app.get("/athlete", (req, res) => {
   let id = req.query.athlete_id;
   // Order by age so that the earlier games appear first, then depending on the medal
-  const sql = `SELECT a.name, ag.age, ag.height, ag.weight, n.team, g.season, g.city, g.year, aem.medal, e.event_name
+  const sql = `SELECT DISTINCT a.name, ag.age, ag.height, ag.weight, n.team, g.season, g.city, g.year, aem.medal, e.event_name
       FROM athlete_game ag
       INNER JOIN noc n ON n.noc_id = ag.noc_id
       INNER JOIN athletes a ON ag.athlete_id = a.athlete_id
@@ -153,7 +153,7 @@ app.get("/female_most_medals", (req, res) => {
     FROM athlete_event_medal m
     INNER JOIN athletes a
     ON a.athlete_id = m.athlete_id
-    WHERE medal = 'Gold' AND a.sex = 'F'
+    WHERE m.medal = 'Gold' AND a.sex = 'F'
     GROUP BY a.athlete_id
     ORDER BY gold_medal_count DESC
     LIMIT 10;`,
@@ -216,11 +216,11 @@ app.get("/summer_winter", (req, res) => {
 
     SELECT p.name, p.sex, e.event_name, g.season, g.city, g.year, aem.medal, p.athlete_id
     FROM athlete_event_medal aem
-    RIGHT JOIN pro_athletes p
+    INNER JOIN pro_athletes p
     ON aem.athlete_id = p.athlete_id
-    RIGHT JOIN events e
+    LEFT JOIN events e
     ON aem.event_id = e.event_id
-    RIGHT JOIN games g
+    LEFT JOIN games g
     ON e.game_id = g.game_id
     WHERE aem.medal != 'No medal'`;
   db.query(sql, function (err, result) {
@@ -288,13 +288,13 @@ app.get("/vancouver_sochi", (req, res) => {
 FROM noc n1
 LEFT JOIN athlete_game ag1
   ON n1.noc_id = ag1.noc_id
-WHERE ag1.game_id = (SELECT game_id FROM games WHERE year = '2014')
+WHERE ag1.game_id = (SELECT game_id FROM games WHERE year = '2010')
   AND n1.noc_id NOT IN (
     SELECT n2.noc_id
     FROM noc n2
     LEFT JOIN athlete_game ag2
       ON n2.noc_id = ag2.noc_id
-    WHERE ag2.game_id = (SELECT game_id FROM games WHERE year = '2010')
+    WHERE ag2.game_id = (SELECT game_id FROM games WHERE year = '2014')
   );
 `;
   db.query(sql, function (err, result) {

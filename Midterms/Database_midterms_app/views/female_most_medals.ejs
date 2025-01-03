@@ -23,19 +23,12 @@
                 <tr>
                     <th>Name</th>
                     <th>Medal Count</th>
-                    <th>Link to games</th>
                 </tr>
             </thead>
             <% data.forEach((item) => { %>
                 <tr>
                     <td><%= item.name%> </td>
                     <td><%= item.gold_medal_count%> </td>
-                    <td>
-                        <form action="/athlete" method = "GET" class = "my-2">
-                            <input type="hidden" name="athlete_id" value = <%=item.athlete_id%> >
-                            <button class="btn btn-outline-dark" type="submit">Athlete details</button>
-                        </form>
-                    </td>
                 </tr>
             <% }); %>
         </table>
