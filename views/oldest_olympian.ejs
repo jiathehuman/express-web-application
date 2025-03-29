@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Get bootstrap library for styling -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Oldest Olympian</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Oldest olympian</li>
+            </ol>
+        </nav>
+        <h1>Oldest Olympian across games from 2010 - 2016</h1>
+        The table below shows the oldest olympian.
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Height (cm)</th>
+                    <th>Event Name</th>
+                    <th>Link to Games</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><%=data.name%></td>
+                <td><%=data.sex%></td>
+                <td><%=data.age%></td>
+                <td><%=data.height%></td>
+                <td><%=data.event_name%></td>
+                <td>
+                <form action="/athlete" method = "GET" class = "my-2">
+                        <input type="hidden" name="athlete_id" value = <%=data.athlete_id%> >
+                        <button class="btn btn-outline-dark" type="submit">Athlete details</button>
+                </form>
+                </td>
+            </tr>
+        </table>
+        </div>
+</body>
+</html>

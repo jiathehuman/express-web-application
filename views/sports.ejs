@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Get bootstrap library for styling -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Sports</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">All Sports</li>
+            </ol>
+        </nav>
+        <h1>All sports</h1>
+        The table below shows the list of sports that were played across all four games.
+        Click on the link to get the average average statistics of athletes participating in that particular sport.
+        <table class = "table mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Link</th>
+            </thead>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><%= item.sport_id%> </td>
+                    <td><%= item.name%> </td>
+                    <td>
+                        <form action="/sports-average-olympian" method = "GET" class = "my-2">
+                            <input type="hidden" name="sport_id" value = <%=item.sport_id%> >
+                            <button class="btn btn-outline-dark" type="submit">Average athlete details</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+        </div>
+</body>
+</html>

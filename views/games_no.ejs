@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Get bootstrap library for styling -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Number of sports</title>
+</head>
+<body>
+    <div class="container p-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sports at each game</li>
+            </ol>
+        </nav>
+        <h1>Number of sports at each of the Olympic Games</h1>
+        This query investigates the total number of sports at each of the Olympic Games. From the table below,
+        it appears that there is an increase of sports from 2010 to 2014 (86 to 98) and 2012 to 2016 (302 to 306).
+        Evidently, games have been added to newer renditions.
+        <table class = "table mt-3">
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Sport Count</th>
+                </tr>
+            </thead>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><%= item.year%> <%= item.city%> (<%= item.season%>)</td>
+                    <td><%= item.sport_count%></td>
+                </tr>
+            <% }); %>
+        </table>
+        <a href="/sports">List of sports</a>
+        </div>
+</body>
+</html>
