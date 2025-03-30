@@ -1,5 +1,5 @@
 # Blogging Web Application with Express
-This is a project done in fulfilment of CM3010 Databases and advanced data techniques module. It involves a SQL database to store tabular data and creating API endpoints to access specific resources.
+This is a project done in fulfilment of CM2040 Databases, Networks and the Web. It involves a SQL database to store tabular data and creating API endpoints to access specific resources.
 
 ## 📢 Key Features
 - Authors can create, update and remove blog posts.
